@@ -43,10 +43,10 @@ const createCommentReply = catchAsync(async (req, res) => {
   })
 })
 
-const createUpvote = catchAsync(async (req, res) => {
+const updateUpvote = catchAsync(async (req, res) => {
   const voteId = req.params.voteId
   const userId = req.user._id
-  const result = await PostServices.createUpvoteIntoDB(userId, voteId)
+  const result = await PostServices.updateUpvoteIntoDB(userId, voteId)
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -56,10 +56,10 @@ const createUpvote = catchAsync(async (req, res) => {
   })
 })
 
-const createDownvote = catchAsync(async (req, res) => {
+const updateDownvote = catchAsync(async (req, res) => {
   const voteId = req.params.voteId
   const userId = req.user._id
-  const result = await PostServices.createDownvoteIntoDB(userId, voteId)
+  const result = await PostServices.updateDownvoteIntoDB(userId, voteId)
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -73,6 +73,6 @@ export const PostControllers = {
   createPost,
   createComment,
   createCommentReply,
-  createUpvote,
-  createDownvote,
+  updateUpvote,
+  updateDownvote,
 }

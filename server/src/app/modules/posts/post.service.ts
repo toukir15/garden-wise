@@ -7,7 +7,7 @@ import { TPost } from './post.interface'
 import Post from './post.model'
 import { Comment } from '../comment/comment.model'
 
-const createPostIntoDB = async (payload: TPost, postImages: [string]) => {
+const createPostIntoDB = async (payload: TPost, postImages: string[]) => {
   const createVotes = await Vote.create({})
 
   payload.post.images = postImages
@@ -16,6 +16,7 @@ const createPostIntoDB = async (payload: TPost, postImages: [string]) => {
   const result = await Post.create(payload)
   return result
 }
+
 const createCommentIntoDB = async (payload: TComments, postId: string) => {
   // find user exist or not
   const user = await User.findById(payload.userId)
@@ -76,7 +77,7 @@ const createCommentReplyIntoDB = async (payload: TReply, commentId: string) => {
   return result
 }
 
-const createUpvoteIntoDB = async (userId: string, voteId: string) => {
+const updateUpvoteIntoDB = async (userId: string, voteId: string) => {
   // check user exist or not
   const findUser = await User.findById(userId)
   if (!findUser) {
@@ -122,7 +123,7 @@ const createUpvoteIntoDB = async (userId: string, voteId: string) => {
   return result
 }
 
-const createDownvoteIntoDB = async (userId: string, voteId: string) => {
+const updateDownvoteIntoDB = async (userId: string, voteId: string) => {
   // check user exist or not
   const findUser = await User.findById(userId)
   if (!findUser) {
@@ -172,6 +173,6 @@ export const PostServices = {
   createPostIntoDB,
   createCommentIntoDB,
   createCommentReplyIntoDB,
-  createUpvoteIntoDB,
-  createDownvoteIntoDB,
+  updateUpvoteIntoDB,
+  updateDownvoteIntoDB,
 }
