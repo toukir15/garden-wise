@@ -17,12 +17,12 @@ router.post('/comment/reply/:commentId', PostControllers.createCommentReply)
 router.patch(
   '/comment/upvote/:voteId',
   auth(USER_ROLE.user, USER_ROLE.admin),
-  PostControllers.createUpvote,
+  PostControllers.updateUpvote,
 )
 router.patch(
   '/comment/downvote/:voteId',
   auth(USER_ROLE.user, USER_ROLE.admin),
-  PostControllers.createDownvote,
+  PostControllers.updateDownvote,
 )
 
 export const PostRouter = router

@@ -1,49 +1,74 @@
-import { JwtPayload } from 'jsonwebtoken'
-import { User } from '../User/user.model'
 import AppError from '../../errors/AppError'
-import httpStatus from 'http-status'
-import { TImageFile } from '../../interfaces/image.interface'
-import { TUserProfileUpdate } from './profile.interface'
-
-const getMyProfile = async (user: JwtPayload) => {
-  const profile = await User.findOne({
-    email: user.email,
-    // status: USER_STATUS.ACTIVE
-  })
-
-  if (!profile) {
-    throw new AppError(httpStatus.NOT_FOUND, 'User does not exixts!')
-  }
-
-  return profile
-}
+import httpStatus, { BAD_REQUEST } from 'http-status'
+import { User } from '../user/user.model'
+import { TUser } from '../user/user.interface'
+import { connection } from 'mongoose'
 
 const updateMyProfile = async (
-  user: JwtPayload,
-  data: Partial<TUserProfileUpdate>,
-  profilePhoto: TImageFile,
+  userId: string,
+  data: Partial<TUser>,
+  profilePhoto: string,
 ) => {
-  const filter = {
-    email: user.email,
-    status: USER_STATUS.ACTIVE,
-  }
-
-  const profile = await User.findOne(filter)
+  const profile = await User.findById(userId)
 
   if (!profile) {
     throw new AppError(httpStatus.NOT_FOUND, 'User profile does not exixts!')
   }
 
   if (profilePhoto) {
-    data.profilePhoto = profilePhoto.path
+    data.profilePhoto = profilePhoto
   } else {
     delete data.profilePhoto
   }
 
-  return await User.findOneAndUpdate(filter, data, { new: true })
+  return await User.findByIdAndUpdate(userId, data, { new: true })
+}
+
+const myFollowings = async (userId: string) => {
+  // check the user exist or not
+  const findUser = await User.findById(userId)
+  if (!findUser) {
+    throw new AppError(BAD_REQUEST, 'User does not exist!')
+  }
+
+  const result = await User.findById(findUser._id)
+    .select({ connection: 1 })
+    .populate({
+      path: 'connection',
+      select: { followings: 1 },
+      populate: {
+        path: 'followings',
+        model: 'User',
+        select: { _id: 1, name: 1, email: 1, profilePhoto: 1 },
+      },
+    })
+
+  return result
+}
+const myFollowers = async (userId: string) => {
+  // check the user exist or not
+  const findUser = await User.findById(userId)
+  if (!findUser) {
+    throw new AppError(BAD_REQUEST, 'User does not exist!')
+  }
+
+  const result = await User.findById(findUser._id)
+    .select({ connection: 1 })
+    .populate({
+      path: 'connection',
+      select: { followers: 1 },
+      populate: {
+        path: 'followers',
+        model: 'User',
+        select: { _id: 1, name: 1, email: 1, profilePhoto: 1 },
+      },
+    })
+
+  return result
 }
 
 export const ProfileServices = {
-  getMyProfile,
   updateMyProfile,
+  myFollowings,
+  myFollowers,
 }

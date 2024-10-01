@@ -4,10 +4,10 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 import config from '../../config'
 import AppError from '../../errors/AppError'
 import { createToken } from '../../utils/verifyJWT'
-import { User } from '../User/user.model'
 import { TLoginUser, TRegisterUser } from './auth.interface'
 import { USER_ROLE } from '../User/user.const'
 import { Connection } from '../connection/connection.model'
+import { User } from '../user/user.model'
 
 const registerUser = async (payload: TRegisterUser, profilePhoto: string) => {
   // checking if the user is exist
@@ -18,7 +18,6 @@ const registerUser = async (payload: TRegisterUser, profilePhoto: string) => {
   }
 
   const createConnection = await Connection.create({})
-  console.log(createConnection)
 
   // make password hash
   const salt = bcrypt.genSaltSync(Number(config.bcrypt_salt_rounds))
@@ -32,7 +31,6 @@ const registerUser = async (payload: TRegisterUser, profilePhoto: string) => {
 
   //create new user
   const newUser = await User.create(payload)
-  console.log(newUser)
 
   //create token and sent to the  client
   const jwtPayload = {
@@ -40,6 +38,7 @@ const registerUser = async (payload: TRegisterUser, profilePhoto: string) => {
     name: newUser.name,
     email: newUser.email,
     role: newUser.role,
+    profilePhote: newUser.profilePhoto,
   }
 
   const accessToken = createToken(
@@ -165,6 +164,7 @@ const refreshToken = async (token: string) => {
     name: user.name,
     email: user.email,
     role: user.role,
+    profilePhoto: user.profilePhoto,
   }
 
   const accessToken = createToken(
