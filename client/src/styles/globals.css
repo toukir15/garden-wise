@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-quill .ql-editor::before {
+  color: rgb(144, 144, 144) !important ;
+  opacity: 1;
+}
