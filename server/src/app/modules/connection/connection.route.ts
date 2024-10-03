@@ -5,7 +5,13 @@ import { USER_ROLE } from '../user/user.const'
 const router = express.Router()
 
 router.patch(
-  '/follow/:connectionId/:followId',
+  '/follow/:followingUserId',
+  auth(USER_ROLE.user, USER_ROLE.admin),
+  ConnectionController.updateConnection,
+)
+
+router.patch(
+  '/unfollow/:connectionId/:followId',
   auth(USER_ROLE.user, USER_ROLE.admin),
   ConnectionController.updateConnection,
 )

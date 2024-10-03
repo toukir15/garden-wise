@@ -7,12 +7,16 @@ import { TPost } from './post.interface'
 import Post from './post.model'
 import { Comment } from '../comment/comment.model'
 
-const createPostIntoDB = async (payload: TPost, postImages: string[]) => {
+const createPostIntoDB = async (
+  payload: TPost,
+  postImages: string[],
+  userId: string,
+) => {
   const createVotes = await Vote.create({})
   const postData = {
     post: {
       ...payload,
-      userId: createVotes._id,
+      userId: userId,
       votes: createVotes._id,
       images: postImages,
     },

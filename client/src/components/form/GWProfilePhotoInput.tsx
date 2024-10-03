@@ -30,11 +30,11 @@ export const GWProfilePhotoInput = ({
         onChange={handleFileChange}
       />
       {/* Display error message */}
-      {errors.profilePhoto && (
+      {/* {errors.profilePhoto && (
         <p className="text-red-500 text-sm mt-2">
           {errors.profilePhoto.message}
         </p>
-      )}
+      )} */}
 
       {/* Image Previews */}
       {imagePreviews.length > 0 && (

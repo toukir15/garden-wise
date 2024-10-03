@@ -35,7 +35,7 @@ export default function SignupPage() {
     }
 
     // Pass formData (which includes both form data and file) to the mutation
-    handleUserRegister(formData); // Instead of passing `data`, you now pass `formData`
+    handleUserRegister(formData);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -4,61 +4,43 @@ import { User } from '../user/user.model'
 import { Connection } from './connection.model'
 
 const updateConnectionIntoDB = async (
-  connectionId: string,
-  followId: string,
+  followingUserId: string,
   userId: string,
 ) => {
-  // check connection is exist or not
-  const findConnection = await Connection.findById(connectionId)
-  if (!findConnection) {
-    throw new AppError(httpStatus.BAD_REQUEST, 'Connecion does not exist!')
-  }
-
   //check find user exist or not
   const findUser = await User.findById(userId)
   if (!findUser) {
     throw new AppError(httpStatus.BAD_REQUEST, 'User does not exist!')
   }
 
-  //check find user exist or not
-  const followUser = await User.findById(followId)
-  if (!followUser) {
+  //check following user exist or not
+  const followingUser = await User.findById(followingUserId)
+  if (!followingUser) {
     throw new AppError(httpStatus.BAD_REQUEST, 'User does not exist!')
   }
 
-  const followUserConnection = await Connection.findById(followUser.connection)
+  //check already follow or not
+  const followUserConnection = await Connection.findOne({
+    _id: findUser.connection,
+    followings: { $in: [followingUser._id] },
+  })
+  const followingUserConnection = await Connection.findOne({
+    _id: followingUser.connection,
+    followers: { $in: [findUser._id] },
+  })
 
-  let result
-  if (findConnection.followings?.includes(findUser._id)) {
-    // update followings
-    result = await Connection.findByIdAndUpdate(
-      findConnection._id,
-      {
-        $pull: { followings: findUser._id },
-      },
-      { new: true },
-    )
-
-    // // update followers
-    await Connection.findByIdAndUpdate(followUserConnection!._id, {
-      $pull: { followers: followUser._id },
-    })
-  } else {
-    // update followings
-    result = await Connection.findByIdAndUpdate(
-      findConnection._id,
-      {
-        $push: { followings: findUser._id },
-      },
-      { new: true },
-    )
-
-    // update followers
-    await Connection.findByIdAndUpdate(followUserConnection!._id, {
-      $push: { followers: followUser._id },
-    })
+  if (followUserConnection || followingUserConnection) {
+    throw new AppError(httpStatus.BAD_REQUEST, 'You already follow this user')
   }
-  return result
+
+  // update following user connection
+  await Connection.findByIdAndUpdate(followingUser.connection, {
+    $push: { followers: findUser._id },
+  })
+  // update follow user connection
+  await Connection.findByIdAndUpdate(findUser.connection, {
+    $push: { followings: followingUser._id },
+  })
 }
 
 export const ConnectionServices = {

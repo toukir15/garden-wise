@@ -9,6 +9,7 @@ const router = express.Router()
 router.post(
   '/',
   multerUpload.array('file'),
+  auth(USER_ROLE.user, USER_ROLE.admin),
   // validateRequest(AuthValidation.registerValidationSchema),
   PostControllers.createPost,
 )
