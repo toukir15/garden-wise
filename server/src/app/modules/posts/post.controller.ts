@@ -4,10 +4,11 @@ import { catchAsync } from '../../utils/catchAsync'
 import { PostServices } from './post.service'
 
 const createPost = catchAsync(async (req, res) => {
-  const postData = JSON.parse(req.body.data)
+  const post = JSON.parse(req.body.data)
   const files = req.files as Express.Multer.File[]
   const postImages = files?.map(file => file.path)
-  const result = await PostServices.createPostIntoDB(postData, postImages)
+  console.log(req.user)
+  const result = await PostServices.createPostIntoDB(post, postImages)
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

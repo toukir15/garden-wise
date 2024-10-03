@@ -7,6 +7,7 @@ export type TUser = {
   password: string
   role: 'user' | 'admin'
   profilePhoto: string
+  address: string
   connection?: Types.ObjectId
 }
 

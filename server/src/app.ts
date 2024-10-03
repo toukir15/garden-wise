@@ -8,7 +8,7 @@ import notFound from './app/middlewares/notFound'
 
 const app: Application = express()
 
-app.use(cors())
+app.use(cors({ origin: ['http://localhost:3000'] }))
 app.use(cookieParser())
 
 // Parser
@@ -29,6 +29,6 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 app.use(globalErrorHandler)
 
 // Handle unmatched routes (404)
-app.use('*', notFound)
+// app.use('*', notFound)
 
 export default app

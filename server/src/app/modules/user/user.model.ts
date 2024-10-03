@@ -8,6 +8,7 @@ const userSchema = new Schema<TUser>(
     password: { type: String, required: true },
     role: { type: String, enum: ['admin', 'user'], default: 'user' },
     profilePhoto: { type: String },
+    address: { type: String },
     connection: { type: Schema.ObjectId, default: null, ref: 'Connection' },
   },
   { timestamps: true },

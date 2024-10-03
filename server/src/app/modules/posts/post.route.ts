@@ -2,13 +2,13 @@ import express from 'express'
 import { multerUpload } from '../../config/multer.config'
 import { PostControllers } from './post.controller'
 import auth from '../../middlewares/auth'
-import { USER_ROLE } from '../User/user.const'
+import { USER_ROLE } from '../user/user.const'
 
 const router = express.Router()
 
 router.post(
   '/',
-  multerUpload.array('posts'),
+  multerUpload.array('file'),
   // validateRequest(AuthValidation.registerValidationSchema),
   PostControllers.createPost,
 )

@@ -6,7 +6,7 @@ import { catchAsync } from '../../utils/catchAsync'
 
 const registerUser = catchAsync(async (req, res) => {
   const userData = JSON.parse(req.body.data)
-  const profilePhoto = req.file!.path
+  const profilePhoto = req.file!?.path
   const result = await AuthServices.registerUser(userData, profilePhoto)
   const { refreshToken, accessToken } = result
   res.cookie('refreshToken', refreshToken, {
@@ -25,7 +25,6 @@ const registerUser = catchAsync(async (req, res) => {
 })
 
 const loginUser = catchAsync(async (req, res) => {
-  console.log({ body: req.body })
   const result = await AuthServices.loginUser(req.body)
   const { refreshToken, accessToken } = result
 

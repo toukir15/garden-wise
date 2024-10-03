@@ -18,6 +18,8 @@ import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import categories from "../../../assets/json/category.json";
 import profile from "../../../../public/toukir.jpg";
+import { useCreatePost } from "@/src/hooks/post.hook";
+import { getCurrentUser } from "@/src/services/auth";
 
 // Dynamically import ReactQuill
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -27,6 +29,7 @@ export default function Home() {
   const [description, setDescription] = useState<string>("");
   const [files, setFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const { mutate: handleCreatePost } = useCreatePost();
 
   const {
     register,
@@ -42,6 +45,7 @@ export default function Home() {
     files.forEach((file) => {
       formData.append(`file`, file);
     });
+    handleCreatePost(formData);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +63,6 @@ export default function Home() {
       setImagePreviews((prev) => [...prev, ...previews]);
     });
   };
-
   // Watch the premium checkbox state
   const isPremium = watch("premium");
 

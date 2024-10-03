@@ -5,7 +5,7 @@ import validateRequest, {
 } from '../../middlewares/validateRequest'
 import { AuthControllers } from './auth.controller'
 import { AuthValidation } from './auth.validation'
-import { USER_ROLE } from '../User/user.const'
+import { USER_ROLE } from '../user/user.const'
 import { multerUpload } from '../../config/multer.config'
 
 const router = express.Router()

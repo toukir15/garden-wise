@@ -9,11 +9,15 @@ import { Comment } from '../comment/comment.model'
 
 const createPostIntoDB = async (payload: TPost, postImages: string[]) => {
   const createVotes = await Vote.create({})
-
-  payload.post.images = postImages
-  payload.post.votes = createVotes._id
-
-  const result = await Post.create(payload)
+  const postData = {
+    post: {
+      ...payload,
+      userId: createVotes._id,
+      votes: createVotes._id,
+      images: postImages,
+    },
+  }
+  const result = await Post.create(postData)
   return result
 }
 

@@ -1,5 +1,5 @@
 import { Types } from 'mongoose'
-import { USER_ROLE } from '../User/user.const'
+import { USER_ROLE } from '../user/user.const'
 
 export type TLoginUser = {
   email: string

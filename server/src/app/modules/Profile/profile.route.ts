@@ -2,7 +2,7 @@ import express from 'express'
 import auth from '../../middlewares/auth'
 import { multerUpload } from '../../config/multer.config'
 import { parseBody } from '../../middlewares/bodyParser'
-import { USER_ROLE } from '../User/user.const'
+import { USER_ROLE } from '../user/user.const'
 import { ProfileController } from './profile.controller'
 
 const router = express.Router()

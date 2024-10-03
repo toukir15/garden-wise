@@ -5,7 +5,7 @@ import config from '../../config'
 import AppError from '../../errors/AppError'
 import { createToken } from '../../utils/verifyJWT'
 import { TLoginUser, TRegisterUser } from './auth.interface'
-import { USER_ROLE } from '../User/user.const'
+import { USER_ROLE } from '../user/user.const'
 import { Connection } from '../connection/connection.model'
 import { User } from '../user/user.model'
 
