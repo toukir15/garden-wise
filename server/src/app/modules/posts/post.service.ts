@@ -16,7 +16,7 @@ const createPostIntoDB = async (
   const postData = {
     post: {
       ...payload,
-      userId: userId,
+      user: userId,
       votes: createVotes._id,
       images: postImages,
     },

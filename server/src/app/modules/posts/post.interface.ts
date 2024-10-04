@@ -1,7 +1,7 @@
 import { Types } from 'mongoose'
 
 export type TPost = {
-  sharedAuthorId?: Types.ObjectId
+  sharedUser?: Types.ObjectId
   description?: string
   votes?: Types.ObjectId
   isShared?: boolean
@@ -9,7 +9,7 @@ export type TPost = {
   share?: string
   isPremium: boolean
   post: {
-    userId: Types.ObjectId
+    user: Types.ObjectId
     description: string
     images: string[]
     comments: Types.ObjectId[]

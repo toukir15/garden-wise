@@ -27,4 +27,4 @@ router.get(
   ProfileController.myFollowings,
 )
 
-export const ProfileRoutes = router
+export const ProfileRouter = router

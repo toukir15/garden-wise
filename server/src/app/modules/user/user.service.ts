@@ -28,7 +28,7 @@ const getUserFromDB = async () => {
     name: 1,
     email: 1,
     address: 1,
-    phone: 1,
+    profilePhoto: 1,
     role: 1,
   })
   return result

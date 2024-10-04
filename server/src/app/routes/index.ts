@@ -1,19 +1,24 @@
 import express from 'express'
-import { AuthRoutes } from '../modules/Auth/auth.route'
-import { ProfileRoutes } from '../modules/profile/profile.route'
 import { PostRouter } from '../modules/posts/post.route'
 import { ConnectionRouter } from '../modules/connection/connection.route'
+import { UserRouter } from '../modules/user/user.route'
+import { AuthRouter } from '../modules/Auth/auth.route'
+import { ProfileRouter } from '../modules/profile/profile.route'
 
 const router = express.Router()
 
 const moduleRoutes = [
   {
     path: '/auth',
-    route: AuthRoutes,
+    route: AuthRouter,
+  },
+  {
+    path: '/users',
+    route: UserRouter,
   },
   {
     path: '/profile',
-    route: ProfileRoutes,
+    route: ProfileRouter,
   },
   {
     path: '/posts',

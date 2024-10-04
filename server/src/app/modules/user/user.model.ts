@@ -7,7 +7,11 @@ const userSchema = new Schema<TUser>(
     email: { type: String, unique: 1, required: true },
     password: { type: String, required: true },
     role: { type: String, enum: ['admin', 'user'], default: 'user' },
-    profilePhoto: { type: String },
+    profilePhoto: {
+      type: String,
+      default:
+        'https://drive.google.com/file/d/1fyV7dYxPaXT9vDfhXpc_tKwYMIMdmVZD/view?usp=sharing',
+    },
     address: { type: String },
     connection: { type: Schema.ObjectId, default: null, ref: 'Connection' },
   },

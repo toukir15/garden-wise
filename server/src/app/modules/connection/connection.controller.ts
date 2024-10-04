@@ -3,22 +3,39 @@ import sendResponse from '../../utils/sendResponse'
 import { catchAsync } from '../../utils/catchAsync'
 import { ConnectionServices } from './connection.service'
 
-const updateConnection = catchAsync(async (req, res) => {
-  const followingUserId = req.params.followingUserId
+const updateFollowConnection = catchAsync(async (req, res) => {
+  const followUserId = req.params.followUserId
   const userId = req.user._id
 
-  const result = await ConnectionServices.updateConnectionIntoDB(
-    followingUserId,
+  const result = await ConnectionServices.updateFollowConnectionIntoDB(
+    followUserId,
     userId,
   )
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Update connection successfully!',
+    message: 'Update follow connection successfully!',
+    data: result,
+  })
+})
+
+const updateUnfollowConnection = catchAsync(async (req, res) => {
+  const unfollowUserId = req.params.unfollowUserId
+  const userId = req.user._id
+
+  const result = await ConnectionServices.updateUnfollowConnectionIntoDB(
+    unfollowUserId,
+    userId,
+  )
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Update unfollow connection successfully!',
     data: result,
   })
 })
 
 export const ConnectionController = {
-  updateConnection,
+  updateFollowConnection,
+  updateUnfollowConnection,
 }
