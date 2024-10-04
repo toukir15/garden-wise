@@ -22,6 +22,12 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
+import LightGallery from "lightgallery/react";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-thumbnail.css"; // Optional: if you want to include thumbnails
+import "lightgallery/css/lg-zoom.css"; // Optional: if you want to include zoom functionality
+import Link from "next/link";
+
 const postData = [
   {
     sharedUser: {
@@ -45,7 +51,142 @@ const postData = [
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas obcaecati corporis repudiandae, laboriosam facere ratione essein totam omnis tempora eligendi similique odio hic nam.",
       createdAt: "2024-10-03T18:01:24.777+00:00",
-      images: [toukir, toukir, toukir],
+      images: [
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+      ],
+      votes: { upvote: 20, downvote: 10 },
+      comment: 40,
+      share: 10,
+      is_liked: true,
+    },
+  },
+  {
+    sharedUser: {
+      name: "Ahmed Toukir",
+      profilePhoto: toukir,
+    },
+    description: "Blockchain Beyond Bitcoin: Real-World Applications",
+    comment: 40,
+    votes: {
+      upvote: 20,
+      downvote: 10,
+    },
+    isShared: false,
+    createdAt: "2024-10-03T18:01:24.777+00:00",
+    post: {
+      user: {
+        _id: "dlkfdsl",
+        name: "Toukir Ahmed",
+        profilePhoto: toukir,
+      },
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas obcaecati corporis repudiandae, laboriosam facere ratione essein totam omnis tempora eligendi similique odio hic nam.",
+      createdAt: "2024-10-03T18:01:24.777+00:00",
+      images: [
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+      ],
+      votes: { upvote: 20, downvote: 10 },
+      comment: 40,
+      share: 10,
+      is_liked: true,
+    },
+  },
+  {
+    sharedUser: {
+      name: "Ahmed Toukir",
+      profilePhoto: toukir,
+    },
+    description: "Blockchain Beyond Bitcoin: Real-World Applications",
+    comment: 40,
+    votes: {
+      upvote: 20,
+      downvote: 10,
+    },
+    isShared: false,
+    createdAt: "2024-10-03T18:01:24.777+00:00",
+    post: {
+      user: {
+        _id: "dlkfdsl",
+        name: "Toukir Ahmed",
+        profilePhoto: toukir,
+      },
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas obcaecati corporis repudiandae, laboriosam facere ratione essein totam omnis tempora eligendi similique odio hic nam.",
+      createdAt: "2024-10-03T18:01:24.777+00:00",
+      images: [
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+      ],
+      votes: { upvote: 20, downvote: 10 },
+      comment: 40,
+      share: 10,
+      is_liked: true,
+    },
+  },
+  {
+    sharedUser: {
+      name: "Ahmed Toukir",
+      profilePhoto: toukir,
+    },
+    description: "Blockchain Beyond Bitcoin: Real-World Applications",
+    comment: 40,
+    votes: {
+      upvote: 20,
+      downvote: 10,
+    },
+    isShared: false,
+    createdAt: "2024-10-03T18:01:24.777+00:00",
+    post: {
+      user: {
+        _id: "dlkfdsl",
+        name: "Toukir Ahmed",
+        profilePhoto: toukir,
+      },
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas obcaecati corporis repudiandae, laboriosam facere ratione essein totam omnis tempora eligendi similique odio hic nam.",
+      createdAt: "2024-10-03T18:01:24.777+00:00",
+      images: [
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+      ],
+      votes: { upvote: 20, downvote: 10 },
+      comment: 40,
+      share: 10,
+      is_liked: true,
+    },
+  },
+  {
+    sharedUser: {
+      name: "Ahmed Toukir",
+      profilePhoto: toukir,
+    },
+    description: "Blockchain Beyond Bitcoin: Real-World Applications",
+    comment: 40,
+    votes: {
+      upvote: 20,
+      downvote: 10,
+    },
+    isShared: false,
+    createdAt: "2024-10-03T18:01:24.777+00:00",
+    post: {
+      user: {
+        _id: "dlkfdsl",
+        name: "Toukir Ahmed",
+        profilePhoto: toukir,
+      },
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas obcaecati corporis repudiandae, laboriosam facere ratione essein totam omnis tempora eligendi similique odio hic nam.",
+      createdAt: "2024-10-03T18:01:24.777+00:00",
+      images: [
+        "https://res.cloudinary.com/dnbxtcqiw/image/upload/v1728010622/6paygfiryz5-1728010642842-file-4c09f6d4-6c00-4aac-93ff-ecbd2aabd675%20-%20Copy.webp",
+      ],
       votes: { upvote: 20, downvote: 10 },
       comment: 40,
       share: 10,
@@ -255,7 +396,38 @@ export default function ViewPost() {
                 <p className="px-2 text-gray-400 ">{data.post.description}</p>
                 <div className="w-[80%] mx-auto ">
                   <div className="flex justify-center pt-4 pb-2">
-                    <Image className="rounded-xl" src={toukir} alt="" />
+                    <div className="flex justify-center gap-1 pt-4 pb-2">
+                      {/* LightGallery wrapper */}
+                      <LightGallery
+                        elementClassNames={`grid ${data.post.images.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-1`}
+                        mode="lg-fade"
+                      >
+                        {data.post.images.map((image, index) => (
+                          <a
+                            key={index}
+                            className={`relative h-full ${
+                              data.post.images.length === 3 && index === 0
+                                ? "row-span-2"
+                                : "row-span-1"
+                            } ${index >= 4 ? "hidden lg:block" : ""}`}
+                            href={image}
+                          >
+                            <Image
+                              src={image}
+                              height={500}
+                              width={500}
+                              className={`h-full object-cover ${index > 3 && "hidden"} `}
+                              alt={`Image ${index + 1}`}
+                            />
+                            {index === 3 && data.post.images.length > 4 && (
+                              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl">
+                                +{data.post.images.length - 4} more
+                              </div>
+                            )}
+                          </a>
+                        ))}
+                      </LightGallery>
+                    </div>
                   </div>
                   <div className="flex justify-between mt-4 px-4 pb-4">
                     <button className="flex items-center gap-1">
@@ -304,7 +476,7 @@ export default function ViewPost() {
             {data.isShared && (
               <div
                 key={key}
-                className="my-4 shadow-md border-b border-gray-600"
+                className="mt-4 shadow-md border-b border-gray-600"
               >
                 <div>
                   <>
@@ -347,10 +519,38 @@ export default function ViewPost() {
                         {data.post.description}
                       </p>
                       <div className="flex w-[90%] mx-auto justify-center pt-4 pb-8">
-                        <Image className="rounded-xl" src={toukir} alt="" />
+                        <LightGallery
+                          elementClassNames={`grid ${data.post.images.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-1`}
+                          mode="lg-fade"
+                        >
+                          {data.post.images.map((image, index) => (
+                            <a
+                              key={index}
+                              className={`relative h-full ${
+                                data.post.images.length === 3 && index === 0
+                                  ? "row-span-2"
+                                  : "row-span-1"
+                              } ${index >= 4 ? "hidden lg:block" : ""}`}
+                              href={image}
+                            >
+                              <Image
+                                src={image}
+                                height={500}
+                                width={500}
+                                className={`h-full object-cover ${index > 3 && "hidden"} `}
+                                alt={`Image ${index + 1}`}
+                              />
+                              {index === 3 && data.post.images.length > 4 && (
+                                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl">
+                                  +{data.post.images.length - 4} more
+                                </div>
+                              )}
+                            </a>
+                          ))}
+                        </LightGallery>
                       </div>
                     </div>
-                    <div className="flex justify-between mt-4 px-10 pb-4">
+                    <div className="flex justify-between mt-4 px-16 pb-4">
                       <button className="flex items-center ">
                         {data.post.votes.upvote && (
                           <FaUpLong className="text-rose-600 text-[20px]" />
