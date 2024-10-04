@@ -204,7 +204,9 @@ export default function RootLayout({
           <p className="mt-1 text-sm">toukir486@gmail.com</p>
         </div>
         <div className="border-[0.5px] mt-4 border-gray-600 p-3 rounded-lg">
-          <p className="text-sm font-medium">Unlock premium posts</p>
+          <p className="text-sm text-green-500 font-medium">
+            Unlock premium posts
+          </p>
           <div className="flex gap-2 items-center">
             <Image src={premium} height={16} width={16} alt="premium" />
             <p className="text-sm mt-1 text-gray-300">Try for BDT 500</p>
@@ -222,7 +224,10 @@ export default function RootLayout({
           <div className=" h-[calc(100vh-359px)] overflow-y-scroll follow_box ">
             {suggetionData.map((data, key) => {
               return (
-                <div key={key} className=" py-3 border-b border-gray-700  ">
+                <div
+                  key={key}
+                  className=" py-3 border-b hover:bg-[#080808] transition duration-150 border-gray-900  "
+                >
                   <div className="flex gap-2 px-2 items-center ">
                     <div>
                       <Image
@@ -243,7 +248,7 @@ export default function RootLayout({
                         </p>
                       </div>
                       {!data.requested && (
-                        <button className="hover:bg-black bg-[#1D9BF0] transition  duration-150 text-white text-xs py-[3px] px-3 rounded-full">
+                        <button className=" bg-green-600 hover:bg-green-500 transition  duration-150 text-white text-xs py-[3px] px-3 rounded-full">
                           Follow
                         </button>
                       )}

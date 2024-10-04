@@ -12,7 +12,6 @@ import { useState } from "react";
 import { IoSend } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
@@ -22,11 +21,9 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
-import LightGallery from "lightgallery/react";
 import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-thumbnail.css"; // Optional: if you want to include thumbnails
-import "lightgallery/css/lg-zoom.css"; // Optional: if you want to include zoom functionality
-import Link from "next/link";
+import LightGalleryImageView from "./LightGalleryImageView";
+import { HiDotsHorizontal } from "react-icons/hi";
 
 const postData = [
   {
@@ -359,6 +356,7 @@ export default function ViewPost() {
         </h3>
       )}
       {postData.map((data, key) => {
+        const images = data.post.images;
         return (
           <>
             {!data.isShared && (
@@ -366,105 +364,55 @@ export default function ViewPost() {
                 key={key}
                 className="my-4 shadow-md border-b border-gray-600"
               >
-                <button
-                  //   onClick={() => {
-                  //     setViewProfileData({
-                  //       name: data.post.author_name,
-                  //       img: data.post.author_img,
-                  //       email: data.post.auhhor_email,
-                  //     });
-                  //     navigate("/profile/view-profile");
-                  //     setSuggFollowStatus("unfollow");
-                  //   }}
-                  className="flex gap-2 items-center p-2 cursor-pointer w-fit"
-                >
-                  <Image
-                    className=" rounded-full"
-                    height={45}
-                    width={45}
-                    src={toukir}
-                    alt=""
-                  />
-                  <div>
-                    <p className="font-medium">{data.post.user.name}</p>
-                    <p className="text-sm text-[#1d9bf0]">
-                      {dayjs(data.post.createdAt).fromNow()}
-                    </p>
-                  </div>
-                </button>
-
+                <div className="flex  justify-between">
+                  <button className="flex gap-2 items-center p-2 cursor-pointer w-fit">
+                    <Image
+                      className=" rounded-full"
+                      height={45}
+                      width={45}
+                      src={toukir}
+                      alt=""
+                    />
+                    <div>
+                      <p className="font-medium">{data.post.user.name}</p>
+                      <p className="text-sm text-start text-green-500">
+                        {dayjs(data.post.createdAt).fromNow()}
+                      </p>
+                    </div>
+                  </button>
+                  <button className="mr-8">
+                    <HiDotsHorizontal className="text-[20px] hover:text-green-500 transition duration-150" />
+                  </button>
+                </div>
+                {/* <p className="ml-2 bg-[#2cd4264c] w-fit px-3 py-[2px] my-1 ">
+                  Vegitable
+                </p> */}
                 <p className="px-2 text-gray-400 ">{data.post.description}</p>
                 <div className="w-[80%] mx-auto ">
                   <div className="flex justify-center pt-4 pb-2">
                     <div className="flex justify-center gap-1 pt-4 pb-2">
                       {/* LightGallery wrapper */}
-                      <LightGallery
-                        elementClassNames={`grid ${data.post.images.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-1`}
-                        mode="lg-fade"
-                      >
-                        {data.post.images.map((image, index) => (
-                          <a
-                            key={index}
-                            className={`relative h-full ${
-                              data.post.images.length === 3 && index === 0
-                                ? "row-span-2"
-                                : "row-span-1"
-                            } ${index >= 4 ? "hidden lg:block" : ""}`}
-                            href={image}
-                          >
-                            <Image
-                              src={image}
-                              height={500}
-                              width={500}
-                              className={`h-full object-cover ${index > 3 && "hidden"} `}
-                              alt={`Image ${index + 1}`}
-                            />
-                            {index === 3 && data.post.images.length > 4 && (
-                              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl">
-                                +{data.post.images.length - 4} more
-                              </div>
-                            )}
-                          </a>
-                        ))}
-                      </LightGallery>
+                      <LightGalleryImageView images={images} />
                     </div>
                   </div>
-                  <div className="flex justify-between mt-4 px-4 pb-4">
+                  <div className="flex justify-between mt-4 px-4  pb-4">
                     <button className="flex items-center gap-1">
                       {data.post.votes.upvote && (
-                        <FaUpLong className="text-rose-600 text-[20px]" />
-                      )}
-                      {!data.post.votes.upvote && (
-                        <FaUpLong className="text-txt-200" />
+                        <FaUpLong className="text-green-500 text-[20px]" />
                       )}
                       <p>{data.post.votes.upvote}</p>
                     </button>
-                    <button className="flex items-center gap-1">
+                    <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
                       {data.post.votes.upvote && (
-                        <FaDownLong className="text-rose-600 text-[20px]" />
-                      )}
-                      {!data.post.votes.upvote && (
-                        <FaDownLong className="text-txt-200" />
+                        <FaDownLong className=" text-[20px]" />
                       )}
                       <p>{data.post.votes.upvote}</p>
                     </button>
-                    <button
-                      // onClick={() => {
-                      //   setIsOpenComment(true);
-                      //   setIsHideNav(false);
-                      // }}
-                      className="flex items-center gap-1"
-                    >
-                      <FaComment className="text-txt-200" />
+                    <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
+                      <FaComment />
                       <p>{data.comment}</p>
                     </button>
-                    <button
-                      // onClick={() => {
-                      //   setIsOpenshare(true);
-                      //   setIsHideNav(false);
-                      // }}
-                      className="flex items-center gap-1"
-                    >
+                    <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
                       <IoIosShareAlt className="text-2xl text-txt-200" />
                       <p>{data.post.share}</p>
                     </button>
@@ -490,7 +438,7 @@ export default function ViewPost() {
                       />
                       <div>
                         <p className="font-medium">{data.sharedUser.name}</p>
-                        <p className="text-sm text-[#1d9bf0]">
+                        <p className="text-sm text-green-500">
                           {dayjs(data.createdAt).fromNow()}
                         </p>
                       </div>
@@ -509,7 +457,7 @@ export default function ViewPost() {
                         />
                         <div>
                           <p className="font-medium">{data.post.user?.name}</p>
-                          <p className="text-sm text-[#1d9bf0]">
+                          <p className="text-sm text-green-500">
                             {dayjs(data.post.createdAt).fromNow()}
                           </p>
                         </div>
@@ -519,59 +467,27 @@ export default function ViewPost() {
                         {data.post.description}
                       </p>
                       <div className="flex w-[90%] mx-auto justify-center pt-4 pb-8">
-                        <LightGallery
-                          elementClassNames={`grid ${data.post.images.length === 1 ? "grid-cols-1" : "grid-cols-2"} gap-1`}
-                          mode="lg-fade"
-                        >
-                          {data.post.images.map((image, index) => (
-                            <a
-                              key={index}
-                              className={`relative h-full ${
-                                data.post.images.length === 3 && index === 0
-                                  ? "row-span-2"
-                                  : "row-span-1"
-                              } ${index >= 4 ? "hidden lg:block" : ""}`}
-                              href={image}
-                            >
-                              <Image
-                                src={image}
-                                height={500}
-                                width={500}
-                                className={`h-full object-cover ${index > 3 && "hidden"} `}
-                                alt={`Image ${index + 1}`}
-                              />
-                              {index === 3 && data.post.images.length > 4 && (
-                                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl">
-                                  +{data.post.images.length - 4} more
-                                </div>
-                              )}
-                            </a>
-                          ))}
-                        </LightGallery>
+                        <LightGalleryImageView images={images} />
                       </div>
                     </div>
                     <div className="flex justify-between mt-4 px-16 pb-4">
-                      <button className="flex items-center ">
+                      <button className="flex items-center hover:text-gray-400 transition duration-150">
                         {data.post.votes.upvote && (
-                          <FaUpLong className="text-rose-600 text-[20px]" />
-                        )}
-                        {!data.post.votes.upvote && (
-                          <FaUpLong className="text-txt-200" />
+                          <FaUpLong className=" text-[20px]" />
                         )}
                         <p>{data.post.votes.upvote}</p>
                       </button>
                       <button className="flex items-center ">
                         {data.post.votes.downvote && (
-                          <FaDownLong className="text-rose-600 text-[20px]" />
+                          <FaDownLong className="text-green-500 text-[20px]" />
                         )}
-                        {!data.post.votes.downvote && <FaDownLong />}
                         <p>{data.post.votes.downvote}</p>
                       </button>
-                      <button className="flex items-center gap-1">
+                      <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
                         <FaComment className="text-txt-200" />
                         <p>{data.post.comment}</p>
                       </button>
-                      <button className="flex items-center gap-1">
+                      <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
                         <IoIosShareAlt className="text-2xl text-txt-200" />
                         <p>{data.post.share}</p>
                       </button>
@@ -623,13 +539,7 @@ export default function ViewPost() {
 
       {/* commet modal  */}
       {isOpenComment && (
-        <div
-          //   onClick={() => {
-          //     setIsOpenComment(false);
-          //     setIsHideNav(true);
-          //   }}
-          className="fixed top-0 left-0 w-screen h-screen bg-[#00000056] z-50 "
-        >
+        <div className="fixed top-0 left-0 w-screen h-screen bg-[#00000056] z-50 ">
           <div
             onClick={(e) => e.stopPropagation()}
             className="w-[95%] md:w-[600px] lg:w-[700px] bg-white rounded-md absolute right-[50%] translate-x-1/2 top-[18%] md:top-[12%] flex flex-col justify-between "
@@ -764,14 +674,7 @@ export default function ViewPost() {
                                         >
                                           Like
                                         </button>
-                                        <button
-                                        //   onClick={() => {
-                                        //     setOpenCommentReplyID(data.id);
-                                        //     setCommentNestedReplyID(reply.id);
-                                        //   }}
-                                        >
-                                          Reply
-                                        </button>
+                                        <button>Reply</button>
                                       </div>
                                       <div className="flex items-center gap-[2px]">
                                         <p>{reply.like}</p>
