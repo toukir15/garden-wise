@@ -25,6 +25,32 @@ const createPostIntoDB = async (
   return result
 }
 
+const createSharePostIntoDB = async (
+  postId: string,
+  userId: string,
+  payload: { description: string },
+) => {
+  const createVotes = await Vote.create({})
+
+  const findPost = await Post.findById(postId)
+
+  const sharePostData = {
+    description: payload.description,
+    isShared: true,
+    post: findPost!.post,
+    sharedUser: userId,
+    votes: createVotes._id,
+  }
+
+  const result = await Post.create(sharePostData)
+  return result
+}
+
+const getPostsFromDB = async () => {
+  const result = await Post.find()
+  return result
+}
+
 const createCommentIntoDB = async (payload: TComments, postId: string) => {
   // find user exist or not
   const user = await User.findById(payload.userId)
@@ -183,4 +209,6 @@ export const PostServices = {
   createCommentReplyIntoDB,
   updateUpvoteIntoDB,
   updateDownvoteIntoDB,
+  getPostsFromDB,
+  createSharePostIntoDB,
 }

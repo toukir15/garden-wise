@@ -8,13 +8,36 @@ const createPost = catchAsync(async (req, res) => {
   const files = req.files as Express.Multer.File[]
   const userId = req.user._id
   const postImages = files?.map(file => file.path)
-  console.log(req.user)
   const result = await PostServices.createPostIntoDB(post, postImages, userId)
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Created post successfully!',
+    data: result,
+  })
+})
+
+const createSharePost = catchAsync(async (req, res) => {
+  const postId = req.params.postId
+  const userId = req.user._id
+  const data = req.body
+  const result = await PostServices.createSharePostIntoDB(postId, userId, data)
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Created post successfully!',
+    data: result,
+  })
+})
+
+const getPosts = catchAsync(async (req, res) => {
+  const result = await PostServices.getPostsFromDB()
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Post retrive successfully!',
     data: result,
   })
 })
@@ -77,4 +100,6 @@ export const PostControllers = {
   createCommentReply,
   updateUpvote,
   updateDownvote,
+  getPosts,
+  createSharePost,
 }

@@ -109,7 +109,7 @@ export default function CreatePost() {
                     variant="bordered"
                   >
                     {(category) => (
-                      <SelectItem key={category.id}>
+                      <SelectItem key={category.label}>
                         {category.label}
                       </SelectItem>
                     )}

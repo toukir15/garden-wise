@@ -2,16 +2,19 @@ import { Schema, model } from 'mongoose'
 import { TPost } from './post.interface'
 
 // Define the schema for the sub-document `post`
-const postSchema = new Schema({
-  user: { type: Schema.ObjectId, required: true, ref: 'User' },
-  description: { type: String, required: true },
-  images: { type: [String], required: true, default: [] },
-  comments: { type: [Schema.ObjectId], ref: 'Comment', default: [] },
-  votes: { type: Schema.ObjectId, ref: 'Vote', default: null },
-  share: { type: String, default: '0' },
-  isPremium: { type: Boolean, default: false },
-  category: { type: String, required: true },
-})
+const postSchema = new Schema(
+  {
+    user: { type: Schema.ObjectId, required: true, ref: 'User' },
+    description: { type: String, required: true },
+    images: { type: [String], required: true, default: [] },
+    comments: { type: [Schema.ObjectId], ref: 'Comment', default: [] },
+    votes: { type: Schema.ObjectId, ref: 'Vote', default: null },
+    share: { type: [String], default: [] },
+    isPremium: { type: Boolean, default: false },
+    category: { type: String, required: true },
+  },
+  { timestamps: true },
+)
 
 // Define the main post schema
 const postMainSchema = new Schema<TPost>(
@@ -21,8 +24,7 @@ const postMainSchema = new Schema<TPost>(
     votes: { type: Schema.ObjectId, ref: 'Vote', default: null },
     isShared: { type: Boolean, default: false },
     comments: { type: [Schema.ObjectId], ref: 'Comment', default: [] },
-    share: { type: String, default: '0' },
-    isPremium: { type: Boolean, default: false },
+    share: { type: [String], default: [] },
     post: { type: postSchema, required: true },
   },
   {

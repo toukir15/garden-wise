@@ -13,6 +13,12 @@ router.post(
   // validateRequest(AuthValidation.registerValidationSchema),
   PostControllers.createPost,
 )
+router.post(
+  '/share-post/:postId',
+  auth(USER_ROLE.user, USER_ROLE.admin),
+  PostControllers.createSharePost,
+)
+router.get('/', PostControllers.getPosts)
 router.post('/comment/:postId', PostControllers.createComment)
 router.post('/comment/reply/:commentId', PostControllers.createCommentReply)
 router.patch(

@@ -6,8 +6,7 @@ export type TPost = {
   votes?: Types.ObjectId
   isShared?: boolean
   comments?: Types.ObjectId[]
-  share?: string
-  isPremium: boolean
+  share: string[]
   post: {
     user: Types.ObjectId
     description: string
@@ -16,6 +15,6 @@ export type TPost = {
     votes: Types.ObjectId
     isPremium: boolean
     category: string
-    share: string
+    share: string[]
   }
 }
