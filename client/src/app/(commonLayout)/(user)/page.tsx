@@ -1,5 +1,8 @@
+// "use client";
+// import { useTest } from "@/src/hooks/test.hook";
+
 import CreatePost from "@/src/components/user/CreatePost";
-import ViewPost from "@/src/components/user/ViewPost";
+import ViewPost from "@/src/components/user/ViewPosts";
 
 export default function Home() {
   return (

@@ -27,17 +27,17 @@ const registerUser = async (payload: TRegisterUser, profilePhoto: string) => {
   payload.role = USER_ROLE.user
   payload.profilePhoto = profilePhoto
   payload.password = hash
-  payload.connection = createConnection._id
+  payload.connection = createConnection?._id
 
   //create new user
   const newUser = await User.create(payload)
 
   //create token and sent to the  client
   const jwtPayload = {
-    _id: newUser._id.toString(),
-    name: newUser.name,
+    _id: newUser?._id.toString(),
+    name: newUser?.name,
     email: newUser.email,
-    role: newUser.role,
+    role: newUser?.role,
     profilePhote: newUser.profilePhoto,
   }
 
@@ -75,10 +75,10 @@ const loginUser = async (payload: TLoginUser) => {
   //create token and sent to the  client
 
   const jwtPayload = {
-    _id: user._id.toString(),
-    name: user.name,
+    _id: user?._id.toString(),
+    name: user?.name,
     email: user.email,
-    role: user.role,
+    role: user?.role,
   }
 
   const accessToken = createToken(
@@ -125,7 +125,7 @@ const changePassword = async (
   await User.findOneAndUpdate(
     {
       email: userData.email,
-      role: userData.role,
+      role: userData?.role,
     },
     {
       password: newHashedPassword,
@@ -160,10 +160,10 @@ const refreshToken = async (token: string) => {
   // }
 
   const jwtPayload = {
-    _id: user._id.toString(),
-    name: user.name,
+    _id: user?._id.toString(),
+    name: user?.name,
     email: user.email,
-    role: user.role,
+    role: user?.role,
     profilePhoto: user.profilePhoto,
   }
 

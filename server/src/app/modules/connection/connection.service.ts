@@ -22,11 +22,11 @@ const updateFollowConnectionIntoDB = async (
   //check already follow or not
   const currentUserConnection = await Connection.findOne({
     _id: currentUser.connection,
-    followings: { $in: [followUser._id] },
+    followings: { $in: [followUser?._id] },
   })
   const followUserConnection = await Connection.findOne({
     _id: followUser.connection,
-    followers: { $in: [currentUser._id] },
+    followers: { $in: [currentUser?._id] },
   })
 
   if (currentUserConnection || followUserConnection) {
@@ -35,11 +35,11 @@ const updateFollowConnectionIntoDB = async (
 
   // update following user connection
   await Connection.findByIdAndUpdate(followUser.connection, {
-    $push: { followers: currentUser._id },
+    $push: { followers: currentUser?._id },
   })
   // update follow user connection
   await Connection.findByIdAndUpdate(currentUser.connection, {
-    $push: { followings: followUser._id },
+    $push: { followings: followUser?._id },
   })
 }
 
@@ -62,21 +62,21 @@ const updateUnfollowConnectionIntoDB = async (
   //check already follow or not
   const currentUserConnection = await Connection.findOne({
     _id: currentUser.connection,
-    followings: { $in: [unfollowUser._id] },
+    followings: { $in: [unfollowUser?._id] },
   })
   const unfollowUserConnection = await Connection.findOne({
     _id: unfollowUser.connection,
-    followers: { $in: [currentUser._id] },
+    followers: { $in: [currentUser?._id] },
   })
 
   if (currentUserConnection || unfollowUserConnection) {
     // update following user connection
     await Connection.findByIdAndUpdate(unfollowUser.connection, {
-      $pull: { followers: currentUser._id },
+      $pull: { followers: currentUser?._id },
     })
     // update follow user connection
     await Connection.findByIdAndUpdate(currentUser.connection, {
-      $pull: { followings: unfollowUser._id },
+      $pull: { followings: unfollowUser?._id },
     })
   } else {
     throw new AppError(httpStatus.BAD_REQUEST, 'You already unfollow this user')

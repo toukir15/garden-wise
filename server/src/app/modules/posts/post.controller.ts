@@ -6,7 +6,7 @@ import { PostServices } from './post.service'
 const createPost = catchAsync(async (req, res) => {
   const post = JSON.parse(req.body.data)
   const files = req.files as Express.Multer.File[]
-  const userId = req.user._id
+  const userId = req.user?._id
   const postImages = files?.map(file => file.path)
   const result = await PostServices.createPostIntoDB(post, postImages, userId)
 
@@ -20,7 +20,7 @@ const createPost = catchAsync(async (req, res) => {
 
 const createSharePost = catchAsync(async (req, res) => {
   const postId = req.params.postId
-  const userId = req.user._id
+  const userId = req.user?._id
   const data = req.body
   const result = await PostServices.createSharePostIntoDB(postId, userId, data)
 
@@ -37,6 +37,17 @@ const getPosts = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
+    message: 'Posts retrive successfully!',
+    data: result,
+  })
+})
+
+const getPost = catchAsync(async (req, res) => {
+  const postId = req.params.postId
+  const result = await PostServices.getPostFromDB(postId)
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
     message: 'Post retrive successfully!',
     data: result,
   })
@@ -45,7 +56,8 @@ const getPosts = catchAsync(async (req, res) => {
 const createComment = catchAsync(async (req, res) => {
   const data = req.body
   const postId = req.params.postId
-  const result = await PostServices.createCommentIntoDB(data, postId)
+  const userId = req.user?._id
+  const result = await PostServices.createCommentIntoDB(data, postId, userId)
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -58,7 +70,12 @@ const createComment = catchAsync(async (req, res) => {
 const createCommentReply = catchAsync(async (req, res) => {
   const data = req.body
   const commentId = req.params.commentId
-  const result = await PostServices.createCommentReplyIntoDB(data, commentId)
+  const userId = req.user?._id
+  const result = await PostServices.createCommentReplyIntoDB(
+    data,
+    commentId,
+    userId,
+  )
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -70,7 +87,7 @@ const createCommentReply = catchAsync(async (req, res) => {
 
 const updateUpvote = catchAsync(async (req, res) => {
   const voteId = req.params.voteId
-  const userId = req.user._id
+  const userId = req.user?._id
   const result = await PostServices.updateUpvoteIntoDB(userId, voteId)
 
   sendResponse(res, {
@@ -83,7 +100,7 @@ const updateUpvote = catchAsync(async (req, res) => {
 
 const updateDownvote = catchAsync(async (req, res) => {
   const voteId = req.params.voteId
-  const userId = req.user._id
+  const userId = req.user?._id
   const result = await PostServices.updateDownvoteIntoDB(userId, voteId)
 
   sendResponse(res, {
@@ -102,4 +119,5 @@ export const PostControllers = {
   updateDownvote,
   getPosts,
   createSharePost,
+  getPost,
 }

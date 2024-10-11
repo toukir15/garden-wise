@@ -168,8 +168,8 @@ const suggetionData = [
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: siteConfig?.name,
+    template: `%s - ${siteConfig?.name}`,
   },
   description: siteConfig.description,
   icons: {
@@ -241,7 +241,7 @@ export default function RootLayout({
                     <div className="flex justify-between items-center w-full">
                       <div>
                         <p className="text-sm text-gray-200 font-medium">
-                          {data.name}
+                          {data?.name}
                         </p>
                         <p className="text-xs text-gray-400">
                           Suggested for you

@@ -5,7 +5,7 @@ import { ProfileServices } from './profile.service'
 
 const updateMyProfile = catchAsync(async (req, res) => {
   const result = await ProfileServices.updateMyProfile(
-    req.user._id,
+    req.user?._id,
     req.body,
     req.file!.path,
   )
@@ -19,7 +19,7 @@ const updateMyProfile = catchAsync(async (req, res) => {
 })
 
 const myFollowings = catchAsync(async (req, res) => {
-  const userId = req.user._id
+  const userId = req.user?._id
   const result = await ProfileServices.myFollowings(userId)
 
   sendResponse(res, {
@@ -31,7 +31,7 @@ const myFollowings = catchAsync(async (req, res) => {
 })
 
 const myFollowers = catchAsync(async (req, res) => {
-  const userId = req.user._id
+  const userId = req.user?._id
   const result = await ProfileServices.myFollowers(userId)
 
   sendResponse(res, {

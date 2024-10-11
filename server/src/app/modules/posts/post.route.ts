@@ -19,8 +19,17 @@ router.post(
   PostControllers.createSharePost,
 )
 router.get('/', PostControllers.getPosts)
-router.post('/comment/:postId', PostControllers.createComment)
-router.post('/comment/reply/:commentId', PostControllers.createCommentReply)
+router.get('/:postId', PostControllers.getPost)
+router.post(
+  '/comment/:postId',
+  auth(USER_ROLE.user, USER_ROLE.admin),
+  PostControllers.createComment,
+)
+router.post(
+  '/comment/reply/:commentId',
+  auth(USER_ROLE.user, USER_ROLE.admin),
+  PostControllers.createCommentReply,
+)
 router.patch(
   '/comment/upvote/:voteId',
   auth(USER_ROLE.user, USER_ROLE.admin),

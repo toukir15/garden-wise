@@ -4,8 +4,8 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 import AppError from '../errors/AppError'
 import { USER_ROLE } from '../modules/user/user.const'
 
-// _id: user._id,
-//     name: user.name,
+// _id: user?._id,
+//     name: user?.name,
 //     email: user.email,
 //     mobileNumber: user.mobileNumber,
 //     role: user.role,

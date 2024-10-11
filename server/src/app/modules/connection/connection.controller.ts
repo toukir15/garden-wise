@@ -5,7 +5,7 @@ import { ConnectionServices } from './connection.service'
 
 const updateFollowConnection = catchAsync(async (req, res) => {
   const followUserId = req.params.followUserId
-  const userId = req.user._id
+  const userId = req.user?._id
 
   const result = await ConnectionServices.updateFollowConnectionIntoDB(
     followUserId,
@@ -21,7 +21,7 @@ const updateFollowConnection = catchAsync(async (req, res) => {
 
 const updateUnfollowConnection = catchAsync(async (req, res) => {
   const unfollowUserId = req.params.unfollowUserId
-  const userId = req.user._id
+  const userId = req.user?._id
 
   const result = await ConnectionServices.updateUnfollowConnectionIntoDB(
     unfollowUserId,

@@ -31,7 +31,7 @@ const myFollowings = async (userId: string) => {
     throw new AppError(BAD_REQUEST, 'User does not exist!')
   }
 
-  const result = await User.findById(findUser._id)
+  const result = await User.findById(findUser?._id)
     .select({ connection: 1 })
     .populate({
       path: 'connection',
@@ -52,7 +52,7 @@ const myFollowers = async (userId: string) => {
     throw new AppError(BAD_REQUEST, 'User does not exist!')
   }
 
-  const result = await User.findById(findUser._id)
+  const result = await User.findById(findUser?._id)
     .select({ connection: 1 })
     .populate({
       path: 'connection',
