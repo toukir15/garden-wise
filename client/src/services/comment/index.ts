@@ -33,3 +33,16 @@ export const comment = async (postId: string, text: string) => {
     throw new Error(error);
   }
 };
+export const commentReply = async (commentId: string, text: string) => {
+  try {
+    const { data } = await axiosInstance.post(
+      `/posts/comment/reply/${commentId}`,
+      {
+        text,
+      }
+    );
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};

@@ -19,6 +19,7 @@ import { useState } from "react";
 import categories from "../../assets/json/category.json";
 import profile from "../../../public/toukir.jpg";
 import { useCreatePost } from "@/src/hooks/post.hook";
+import { FaRegImage } from "react-icons/fa";
 
 // Dynamically import ReactQuill
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -88,11 +89,11 @@ export default function CreatePost() {
       <Modal
         className="bg-[#121212]"
         isOpen={isOpen}
-        size="xl"
+        size="2xl"
         onOpenChange={onOpenChange}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <ModalContent>
+          <ModalContent className="absolute top-8 -translate-x-9">
             {(onClose) => (
               <>
                 <ModalHeader className="flex text-center flex-col gap-1 border-b border-gray-600">
@@ -114,33 +115,15 @@ export default function CreatePost() {
                       </SelectItem>
                     )}
                   </Select>
-
-                  {/* Rich Text Editor */}
-                  <div className="mt-3">
-                    <ReactQuill
-                      placeholder="Add a description..."
-                      className="text-white custom-quill"
-                      theme="snow"
-                      value={description}
-                      onChange={setDescription}
-                    />
-                  </div>
-
-                  {/* Premium Checkbox */}
-                  <Checkbox
-                    {...register("premium")} // Register the checkbox
-                    defaultSelected={false}
-                    size="md"
-                  >
-                    Premium
-                  </Checkbox>
-
                   {/* Add Images */}
                   <label
-                    className="mb-1  border py-2 px-4 text-center rounded-full mt-2 border-[#1D9BF0] text-[#1D9BF0]"
+                    className="border py-2 px-4 text-center w-fit flex items-center gap-2 text-sm rounded-full mt-2 border-green-500 text-green-500"
                     htmlFor="addImage"
                   >
-                    Add Images
+                    <span>
+                      <FaRegImage />
+                    </span>
+                    <span>Add Images</span>
                   </label>
                   <input
                     type="file"
@@ -152,8 +135,8 @@ export default function CreatePost() {
 
                   {/* Image Previews */}
                   {imagePreviews.length > 0 && (
-                    <div className="flex flex-col md:flex-row w-full md:items-center mb-2 md:mb-6">
-                      <div className="flex justify-center w-full flex-wrap gap-3">
+                    <div className="flex flex-col md:flex-row w-full md:items-center mb-2 ">
+                      <div className={`flex w-full flex-wrap gap-3`}>
                         {imagePreviews.map((src, idx) => (
                           <div
                             key={idx}
@@ -169,10 +152,30 @@ export default function CreatePost() {
                       </div>
                     </div>
                   )}
+
+                  {/* Rich Text Editor */}
+                  <div className="mt-3">
+                    <ReactQuill
+                      placeholder="Add a description..."
+                      className="text-white custom-quill"
+                      value={description}
+                      onChange={setDescription}
+                      style={{ height: "100px" }}
+                    />
+                  </div>
+
+                  <Checkbox
+                    {...register("premium")} // Register the checkbox
+                    defaultSelected={false}
+                    size="md"
+                    className="mt-10"
+                  >
+                    Premium
+                  </Checkbox>
                 </ModalBody>
                 <ModalFooter>
                   <Button
-                    className="bg-[#1D9BF0] rounded-full"
+                    className="bg-green-500 py-2 font-medium rounded-full w-full"
                     type="submit"
                     onPress={onClose}
                   >

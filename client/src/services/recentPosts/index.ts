@@ -6,7 +6,6 @@ export const getPosts = async () => {
       tags: ["posts"],
     },
   };
-
   const res = await fetch(`${envConfig.baseApi}/posts`, fetchOption);
   return await res.json();
 };

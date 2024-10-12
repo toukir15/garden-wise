@@ -39,7 +39,7 @@ const getUserFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
         name: 1,
         email: 1,
         address: 1,
-        phone: 1,
+        profilePhoto: 1,
         role: 1,
     });
     return result;

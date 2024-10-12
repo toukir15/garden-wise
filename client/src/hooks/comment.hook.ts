@@ -1,6 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { comment, downvote, upvote } from "../services/comment";
+import { comment, commentReply, downvote, upvote } from "../services/comment";
 import { IUser } from "../../types";
+
+type TCommentPayload = {
+  postId: string;
+  text: string;
+  user: IUser | null;
+};
 
 export const useUpvote = () => {
   const queryClient = useQueryClient();
@@ -17,7 +23,7 @@ export const useUpvote = () => {
       commentId: string;
       replyId?: string;
     }) => {
-      return await upvote(voteId, postId, userId, commentId);
+      return await upvote(voteId);
     },
 
     // Optimistic update logic
@@ -194,11 +200,6 @@ export const useDownvote = () => {
   });
 };
 
-type TCommentPayload = {
-  postId: string;
-  text: string;
-  user: IUser | null;
-};
 export const useComment = () => {
   const queryClient = useQueryClient();
 
@@ -206,50 +207,6 @@ export const useComment = () => {
     mutationFn: async ({ postId, text }: TCommentPayload) => {
       return await comment(postId, text);
     },
-
-    // Optimistic update logic
-    // onMutate: async ({ postId, user, text }) => {
-    //   const currentTimestamp = new Date().toISOString();
-
-    //   // Create the new comment object
-    //   const commentData = {
-    //     _id: "",
-    //     text: text,
-    //     replies: [],
-    //     user: {
-    //       _id: user?._id,
-    //       name: user?.name,
-    //       profilePhoto: user?.profilePhoto,
-    //     },
-    //     votes: { _id: "", upvote: [], downvote: [] },
-    //     createdAt: currentTimestamp,
-    //   };
-
-    //   // Cancel any outgoing queries for this specific post to prevent conflicts
-    //   await queryClient.cancelQueries(["post", postId]);
-
-    //   // Snapshot the previous post data for rollback on error
-    //   const previousPost = queryClient.getQueryData(["post", postId]);
-
-    //   // Optimistically update the post data with the new comment
-    //   queryClient.setQueryData(["post", postId], (old: any) => {
-    //     if (!old) return old;
-
-    //     // Create a new post object to avoid mutation
-    //     const postData = { ...old.data };
-
-    //     if (!postData.isShared) {
-    //       postData.post = {
-    //         ...postData.post,
-    //         comments: [...postData.post.comments, commentData],
-    //       };
-    //     }
-
-    //     return { ...old, data: postData };
-    //   });
-
-    //   return { previousPost };
-    // },
 
     onSuccess: (serverResponse, variables) => {
       const { postId, text, user } = variables;
@@ -263,11 +220,9 @@ export const useComment = () => {
           name: user?.name,
           profilePhoto: user?.profilePhoto,
         },
-        votes: { _id: serverResponse.data.votes._id, upvote: [], downvote: [] },
+        votes: { _id: serverResponse.data.votes, upvote: [], downvote: [] },
         createdAt: currentTimestamp,
       };
-      console.log(commentData);
-
       // Update the query cache for the specific post with the new comment from the server
       queryClient.setQueryData(["post", postId], (old: any) => {
         if (!old) return old;
@@ -280,10 +235,84 @@ export const useComment = () => {
             ...postData.post,
             comments: [...postData.post.comments, commentData],
           };
+        } else {
+          postData.comments = [...postData.comments, commentData];
         }
-
+        console.log(postData);
         return { ...old, data: postData };
       });
     },
   });
 };
+
+// type TCommentReplyPayload = {
+//   commentId: string;
+//   text: string;
+//   user: IUser | null;
+//   postId: string;
+// };
+
+// export const useCommentReply = () => {
+//   const queryClient = useQueryClient();
+
+//   return useMutation({
+//     mutationFn: async ({ commentId, text }: TCommentReplyPayload) => {
+//       return await commentReply(commentId, text);
+//     },
+
+//     onSuccess: (serverResponse, variables) => {
+//       console.log(serverResponse);
+//       const { commentId, postId, text, user } = variables;
+//       const currentTimestamp = new Date().toISOString();
+//       // const commentData = {
+//       //   _id: serverResponse.data._id,
+//       //   text: text,
+//       //   replies: [],
+//       //   user: {
+//       //     _id: user?._id,
+//       //     name: user?.name,
+//       //     profilePhoto: user?.profilePhoto,
+//       //   },
+//       //   votes: { _id: serverResponse.data.votes, upvote: [], downvote: [] },
+//       //   createdAt: currentTimestamp,
+//       // };
+//       // console.log(commentData);
+
+//       // Update the query cache for the specific post with the new comment from the server
+//       queryClient.setQueryData(["post", postId], (old: any) => {
+//         if (!old) return old;
+//         console.log({ old });
+
+//         // Create a new post object to avoid mutation
+//         const postData = { ...old.data };
+
+//         if (!postData.isShared) {
+//           // Find the specific comment by its _id
+//           const findCommentIndex = postData.post.comments.findIndex(
+//             (comment: { _id: string }) => comment._id === commentId
+//           );
+
+//           if (findCommentIndex !== -1) {
+//             // Create a new array with the updated replies for the specific comment
+//             const updatedComments = [...postData.post.comments];
+//             updatedComments[findCommentIndex] = {
+//               ...updatedComments[findCommentIndex],
+//               replies: [
+//                 ...updatedComments[findCommentIndex].replies,
+//                 replyData,
+//               ],
+//             };
+
+//             // Update the post with the new comments array
+//             postData.post = {
+//               ...postData.post,
+//               comments: updatedComments,
+//             };
+//           }
+//         }
+
+//         // return { ...old, data: postData };
+//       });
+//     },
+//   });
+// };

@@ -7,6 +7,7 @@ import toukir from "../../../public/toukir.jpg";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useUser } from "@/src/context/user.provider";
+import { formatRelativeTime } from "@/src/utils/formatRelativeTime";
 dayjs.extend(relativeTime);
 
 export default function CommentReply({
@@ -60,8 +61,8 @@ export default function CommentReply({
               <div className=" pr-2  shrink-0 mt-2">
                 <Image
                   className=" rounded-full"
-                  height={25}
-                  width={25}
+                  height={20}
+                  width={20}
                   src={reply.commentReplyUser.profilePhoto}
                   alt=""
                 />
@@ -74,7 +75,7 @@ export default function CommentReply({
                     </span>
                   </p>
                   <p className="mb-1 text-gray-300 leading-[1.3] text-sm">
-                    <span className="text-white font-medium">
+                    <span className=" font-medium text-green-500">
                       @{reply.replyTo?.name}
                     </span>{" "}
                     {reply.text}
@@ -82,7 +83,7 @@ export default function CommentReply({
                 </div>
                 <div className="flex gap-10 justify-between mt-1 text-sm font-medium text-gray-300 ml-3">
                   <div className="flex gap-5">
-                    <span>{dayjs(reply.createdAt).fromNow()}</span>
+                    <span>{formatRelativeTime(dayjs(reply.createdAt))}</span>
                     <button
                       onClick={() => {
                         handleCommnetUpvote(
@@ -117,21 +118,21 @@ export default function CommentReply({
                         <p>{reply.votes.downvote.length}</p>
                       </div>
                     </button>
-                    <button
+                    {/* <button
                       onClick={() => {
                         setCommentNestedReplyID(reply?._id);
                         setOpenCommentReplyID(commentId);
                       }}
                     >
                       Reply
-                    </button>
+                    </button> */}
                   </div>
                   <div className="hiden"></div>
                 </div>
               </div>
             </div>
             {/* nested comment reply */}
-            {openCommentReplyID === commentId &&
+            {/* {openCommentReplyID === commentId &&
               openCommentNestedReplyID === reply?._id && (
                 <form
                   // onSubmit={handleNestedCommentReply}
@@ -157,7 +158,7 @@ export default function CommentReply({
                     <IoSend />
                   </button>
                 </form>
-              )}
+              )} */}
           </>
         );
       })}

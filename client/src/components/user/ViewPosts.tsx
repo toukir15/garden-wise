@@ -11,13 +11,25 @@ dayjs.extend(relativeTime);
 import "lightgallery/css/lightgallery.css";
 import LightGalleryImageView from "./LightGalleryImageView";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { Dropdown, DropdownItem, DropdownMenu } from "@nextui-org/react";
-import { useDownvote, useUpvote } from "@/src/hooks/post.hook";
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@nextui-org/react";
+import { useDownvote, useSharePost, useUpvote } from "@/src/hooks/post.hook";
 import { useGetPosts } from "@/src/hooks/recentPosts.hook";
 import ViewComment from "./ViewComment";
 import { checkVoteStatus } from "@/src/utils/checkVoteStatus";
 import { useUser } from "@/src/context/user.provider";
 import { TPost } from "../../../types";
+import ReactQuill from "react-quill";
 
 const items = [
   {
@@ -39,12 +51,15 @@ export default function ViewPost() {
   const [postId, setPostId] = useState("");
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isOpenComment, setIsOpenComment] = useState(false);
+  const [isOpenSharedComment, setOpenSharedComment] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [description, setDescription] = useState<string>("");
   const {
     data: postsData,
     isLoading: isPostsDataLoading,
     error: postsDataError,
   } = useGetPosts();
-  const [isOpenComment, setIsOpenComment] = useState(false);
   const userId = user!?._id;
 
   const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
@@ -74,10 +89,16 @@ export default function ViewPost() {
   const handlePostDownvote = (voteId: string, postId: string) => {
     handleDownvote({ voteId, postId, userId });
   };
+
+  const { mutate: handleSharePost } = useSharePost();
+  const handlePostShare = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSharePost({ description, postId });
+  };
+
   return (
     <div>
       {postsData?.data?.map((data: TPost, key: number) => {
-        console.log(data);
         const images = data.post.images || [];
         const upvoteStatus = checkVoteStatus(
           data.isShared,
@@ -98,7 +119,7 @@ export default function ViewPost() {
                 className="my-4 shadow-md border-b border-gray-600"
                 ref={navbarRef}
               >
-                <div className="flex  justify-between">
+                <div className="flex justify-between">
                   <button className="flex gap-2 items-center p-2 cursor-pointer w-fit">
                     <Image
                       className=" rounded-full"
@@ -153,7 +174,7 @@ export default function ViewPost() {
                     )}
                   </div>
                 </div>
-                {/* <p className="ml-2 bg-[#2cd4264c] w-fit px-3 py-[2px] my-1 ">
+                {/* <p className="ml-4 text-sm rounded text-green-500 bg-[#1a2a17d4] w-fit px-3 py-[4px] my-1 ">
                   Vegitable
                 </p> */}
                 <div className="mx-4 text-gray-400 break-words">
@@ -209,17 +230,25 @@ export default function ViewPost() {
                     <button
                       onClick={() => {
                         setPostId(data?._id);
-                        setIsOpenComment(!isOpenComment);
+                        setIsOpenComment(true);
+                        setOpenSharedComment(false);
                       }}
                       className="flex items-center gap-1 hover:text-gray-400 transition duration-150"
                     >
                       <FaComment />
-                      <p>{data?.comments.length || 0}</p>
+                      <p>
+                        {data.post?.comments?.length
+                          ? data.post?.comments?.length
+                          : 0}
+                      </p>
                     </button>
-                    <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
+                    <Button
+                      onClick={() => setPostId(data._id)}
+                      onPress={onOpen}
+                      className="flex bg-black items-center gap-1 hover:text-gray-400 transition duration-150"
+                    >
                       <IoIosShareAlt className="text-2xl text-txt-200" />
-                      <p>{data.post.share.length || 0}</p>
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -232,21 +261,65 @@ export default function ViewPost() {
               >
                 <div>
                   <>
-                    <button className="flex gap-2 items-center p-2 cursor-pointer w-fit ">
-                      <Image
-                        className=" rounded-full"
-                        height={45}
-                        width={45}
-                        src={toukir}
-                        alt=""
-                      />
-                      <div>
-                        <p className="font-medium">{data.sharedUser?.name}</p>
-                        <p className="text-sm text-green-500">
-                          {dayjs(data.createdAt).fromNow()}
-                        </p>
+                    <div className="flex justify-between">
+                      <button className="flex gap-2 items-center p-2 cursor-pointer w-fit text-start">
+                        <Image
+                          className=" rounded-full"
+                          height={45}
+                          width={45}
+                          src={toukir}
+                          alt=""
+                        />
+                        <div>
+                          <p className="font-medium">{data.sharedUser?.name}</p>
+                          <p className="text-sm text-green-500">
+                            {dayjs(data.createdAt).fromNow()}
+                          </p>
+                        </div>
+                      </button>
+                      <div className="relative">
+                        <button
+                          onClick={() => {
+                            toggleDropdown();
+                            setPostId(data?._id);
+                          }}
+                          className="mr-8 relative"
+                        >
+                          <HiDotsHorizontal className="text-[20px] hover:text-green-500 transition duration-150" />
+                        </button>
+                        {isDropdownOpen && postId == data?._id && (
+                          <div className="rounded bg-white shadow-sm z-50 w-40 absolute flex flex-col -left-[170px]">
+                            <Dropdown>
+                              {[
+                                <DropdownMenu
+                                  key="dropdown-menu"
+                                  aria-label="Dynamic Actions"
+                                  items={items}
+                                >
+                                  {(item) => (
+                                    <DropdownItem
+                                      key={item.key}
+                                      color={
+                                        item.key === "delete"
+                                          ? "danger"
+                                          : "default"
+                                      }
+                                      className={
+                                        item.key === "delete"
+                                          ? "text-danger"
+                                          : ""
+                                      }
+                                    >
+                                      {item.label}
+                                    </DropdownItem>
+                                  )}
+                                </DropdownMenu>,
+                              ]}
+                            </Dropdown>
+                          </div>
+                        )}
                       </div>
-                    </button>
+                    </div>
                     <div className="pl-4">
                       <div
                         dangerouslySetInnerHTML={{
@@ -257,7 +330,7 @@ export default function ViewPost() {
                   </>
                   <div className="">
                     <div className="mx-6 border border-gray-600 p-2 mt-2 rounded-lg">
-                      <button className="  flex gap-2 items-center p-2 cursor-pointer w-fit ">
+                      <button className=" text-start flex gap-2 items-center p-2 cursor-pointer w-fit ">
                         <Image
                           className=" rounded-full"
                           height={40}
@@ -310,64 +383,79 @@ export default function ViewPost() {
                             : 0}
                         </p>
                       </button>
-                      <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
-                        <FaComment
-                          onClick={() => setPostId(data._id)}
-                          className="text-txt-200"
-                        />
-                        <p>{data.post.comments.length || 0}</p>
+                      <button
+                        onClick={() => {
+                          setPostId(data?._id);
+                          setIsOpenComment(false);
+                          setOpenSharedComment(true);
+                        }}
+                        className="flex items-center gap-1 hover:text-gray-400 transition duration-150"
+                      >
+                        <FaComment className="text-txt-200" />
+                        <p>
+                          {data?.comments?.length ? data?.comments?.length : 0}
+                        </p>
                       </button>
-                      <button className="flex items-center gap-1 hover:text-gray-400 transition duration-150">
+                      <Button
+                        onClick={() => setPostId(data._id)}
+                        onPress={onOpen}
+                        className="flex bg-black items-center gap-1 hover:text-gray-400 transition duration-150"
+                      >
                         <IoIosShareAlt className="text-2xl text-txt-200" />
-                        <p>{data.post.share.length || 0}</p>
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
               </div>
             )}
-
-            {/* mobile follow request  */}
-            {/* {key == 1 && (
-              <div className="my-4 bg-white p-4 rounded-lg block lg:hidden">
-                <Swiper
-                  slidesPerView={3}
-                  spaceBetween={30}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  modules={[Pagination]}
-                  className="mySwiper"
-                >
-                  {followSuggetionData.map((data, key) => {
-                    return (
-                      <SwiperSlide key={key}>
-                        <div>
-                          <img className="w-fit" src={data.img} alt="" />
-                          <p className="pt-2 text-sm font-medium text-center">
-                            {data?.name}
-                          </p>
-                          <p className="text-center text-xs pb-2 text-primary-100">
-                            {data.email}
-                          </p>
-                          <button className="bg-black py-[3px] text-sm text-white w-full">
-                            Confirm
-                          </button>
-                          <button className=" border border-gray-700 hover:border-gray-900 text-gray-700 hover:text-gray-900 py-[3px] text-sm w-full mt-[6px]">
-                            Delete
-                          </button>
-                        </div>
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-              </div>
-            )} */}
           </div>
         );
       })}
-      {isOpenComment && (
-        <ViewComment postId={postId} setIsOpenComment={setIsOpenComment} />
+      <Modal
+        className="bg-[#121212]"
+        isOpen={isOpen}
+        size="2xl"
+        onOpenChange={onOpenChange}
+      >
+        <form onSubmit={handlePostShare}>
+          <ModalContent className="absolute top-8 -translate-x-9">
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex text-center flex-col gap-1 border-b border-gray-600">
+                  Create post
+                </ModalHeader>
+                <ModalBody>
+                  {/* Rich Text Editor */}
+                  <div className="mt-3">
+                    <ReactQuill
+                      placeholder="Add a description..."
+                      className="text-white custom-quill"
+                      value={description}
+                      onChange={setDescription}
+                      style={{ height: "150px" }}
+                    />
+                  </div>
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    className="bg-green-500 py-2 mt-10 font-medium rounded-full w-full"
+                    type="submit"
+                    onPress={onClose}
+                  >
+                    Share
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </form>
+      </Modal>
+      {(isOpenComment || isOpenSharedComment) && (
+        <ViewComment
+          postId={postId}
+          setOpenSharedComment={setOpenSharedComment}
+          setIsOpenComment={setIsOpenComment}
+        />
       )}
     </div>
   );

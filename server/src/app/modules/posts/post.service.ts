@@ -71,7 +71,7 @@ const getPostsFromDB = async () => {
     .populate({
       path: 'comments',
       model: 'Comment',
-      select: 'text replies user createdAt',
+      select: 'text user votes replies createdAt',
       populate: [
         {
           path: 'user',
@@ -87,6 +87,16 @@ const getPostsFromDB = async () => {
           path: 'replies.replyTo',
           model: 'User',
           select: 'name',
+        },
+        {
+          path: 'votes',
+          model: 'Vote',
+          select: 'upvote downvote',
+        },
+        {
+          path: 'replies.votes',
+          model: 'Vote',
+          select: 'upvote downvote',
         },
       ],
     })
@@ -161,7 +171,7 @@ const getPostFromDB = async (postId: string) => {
     .populate({
       path: 'comments',
       model: 'Comment',
-      select: 'text replies user createdAt',
+      select: 'text votes replies user createdAt',
       populate: [
         {
           path: 'user',
@@ -176,7 +186,17 @@ const getPostFromDB = async (postId: string) => {
         {
           path: 'replies.replyTo',
           model: 'User',
-          select: 'name profilePhoto',
+          select: 'name',
+        },
+        {
+          path: 'votes',
+          model: 'Vote',
+          select: 'upvote downvote',
+        },
+        {
+          path: 'replies.votes',
+          model: 'Vote',
+          select: 'upvote downvote',
         },
       ],
     })

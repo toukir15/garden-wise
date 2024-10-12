@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthRoutes = void 0;
+exports.AuthRouter = void 0;
 const express_1 = __importDefault(require("express"));
 const validateRequest_1 = __importStar(require("../../middlewares/validateRequest"));
 const auth_controller_1 = require("./auth.controller");
@@ -43,4 +43,4 @@ router.post('/change-password',
 // auth(USER_ROLE.USER as st, USER_ROLE.ADMIN),
 (0, validateRequest_1.default)(auth_validation_1.AuthValidation.changePasswordValidationSchema), auth_controller_1.AuthControllers.changePassword);
 router.post('/refresh-token', (0, validateRequest_1.validateRequestCookies)(auth_validation_1.AuthValidation.refreshTokenValidationSchema), auth_controller_1.AuthControllers.refreshToken);
-exports.AuthRoutes = router;
+exports.AuthRouter = router;

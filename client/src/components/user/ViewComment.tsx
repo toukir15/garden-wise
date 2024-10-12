@@ -10,18 +10,23 @@ dayjs.extend(relativeTime);
 export default function ViewComment({
   postId,
   setIsOpenComment,
+  setOpenSharedComment,
 }: {
   postId: string;
   setIsOpenComment: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenSharedComment: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
     <div
-      onClick={() => setIsOpenComment(false)}
+      onClick={() => {
+        setIsOpenComment(false);
+        setOpenSharedComment(false);
+      }}
       className="fixed top-0 left-0 w-screen h-screen bg-[#000000ba] z-50 "
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-[95%] md:w-[600px] lg:w-[700px] bg-[#121212] rounded-md absolute right-[50%] translate-x-1/2 top-[18%] md:top-[12%] flex flex-col justify-between "
+        className="w-[95%] md:w-[600px] lg:w-[660px] bg-[#121212] rounded-md absolute right-[52%] translate-x-1/2 top-[18%] md:top-[12%] flex flex-col justify-between "
       >
         {/* hade and body  */}
         <div className="">
@@ -30,7 +35,10 @@ export default function ViewComment({
             <button
               type="button"
               className=" text-2xl absolute top-[10px] right-2 hover:bg-[#2d2a2a] p-1 rounded-full transition duration-150"
-              onClick={() => setIsOpenComment(false)}
+              onClick={() => {
+                setIsOpenComment(false);
+                setOpenSharedComment(false);
+              }}
             >
               <IoClose />
             </button>

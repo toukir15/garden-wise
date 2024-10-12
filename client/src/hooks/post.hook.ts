@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPost, downvote, upvote } from "../services/posts";
+import { createPost, downvote, sharePost, upvote } from "../services/posts";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -29,6 +29,37 @@ export const useCreatePost = () => {
   });
 };
 
+type SharePostVariables = {
+  description: string;
+  postId: string;
+};
+export const useSharePost = () => {
+  return useMutation<any, Error, SharePostVariables>({
+    mutationKey: ["POST"],
+    mutationFn: async ({ description, postId }) =>
+      await sharePost(description, postId),
+    onMutate: () => {
+      const toastId = toast.loading("Sharing post...", {
+        duration: Infinity,
+        position: "top-right",
+      });
+      return { toastId };
+    },
+    onSuccess: (_data, _variables, context: any) => {
+      toast.success("Shared post successfully!", {
+        id: context?.toastId,
+        duration: 2000,
+      });
+    },
+    onError: (_error, _variables, context: any) => {
+      toast.error("Failed to share post. Please try again.", {
+        id: context?.toastId,
+        duration: 2000,
+      });
+    },
+  });
+};
+
 export const useUpvote = () => {
   const queryClient = useQueryClient();
 
@@ -42,7 +73,7 @@ export const useUpvote = () => {
       postId: string;
       userId: string;
     }) => {
-      return await upvote(voteId, postId, userId);
+      return await upvote(voteId);
     },
 
     // Optimistic update logic
@@ -123,7 +154,7 @@ export const useDownvote = () => {
       userId: string;
       replyId?: string;
     }) => {
-      return await downvote(voteId, postId, userId);
+      return await downvote(voteId);
     },
 
     // Optimistic update logic
