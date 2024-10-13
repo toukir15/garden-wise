@@ -1,5 +1,4 @@
-// "use client";
-// import { useTest } from "@/src/hooks/test.hook";
+"use client";
 
 import CreatePost from "@/src/components/user/CreatePost";
 import ViewPost from "@/src/components/user/ViewPosts";

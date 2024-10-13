@@ -29,6 +29,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$Next$
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$Next$2d$Level$2d$Technology$2f$Assingment$2f$Assingment6$2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$Next$2d$Level$2d$Technology$2f$Assingment$2f$Assingment6$2f$client$2f$src$2f$services$2f$auth$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-ssr] (ecmascript)");
 "__TURBOPACK__ecmascript__hoisting__location__";
+"use client";
 ;
 ;
 ;
@@ -53,7 +54,7 @@ const UserProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/context/user.provider.tsx",
-        lineNumber: 36,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 };
