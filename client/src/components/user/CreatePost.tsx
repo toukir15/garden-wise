@@ -14,7 +14,6 @@ import {
 import { Button } from "@nextui-org/button";
 import { Checkbox, Select, SelectItem } from "@nextui-org/react";
 import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import categories from "../../assets/json/category.json";
 import profile from "../../../public/toukir.jpg";
@@ -22,14 +21,17 @@ import { useCreatePost } from "@/src/hooks/post.hook";
 import { FaRegImage } from "react-icons/fa";
 
 // Dynamically import ReactQuill
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false,
+  loading: () => <textarea placeholder="Loading editor..." />,
+});
 
 export default function CreatePost() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [description, setDescription] = useState<string>("");
-  const [files, setFiles] = useState<File[]>([]);
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  const { mutate: handleCreatePost } = useCreatePost();
+  const [description, setDescription] = useState<string>(""); // Rich text description state
+  const [files, setFiles] = useState<File[]>([]); // Image file state
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]); // Image preview state
+  const { mutate: handleCreatePost } = useCreatePost(); // Mutation to handle post submission
 
   const {
     register,
@@ -39,15 +41,16 @@ export default function CreatePost() {
   } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // Handle the submitted data
+    // Handle form submission
     const formData = new FormData();
     formData.append("data", JSON.stringify({ ...data, description }));
     files.forEach((file) => {
       formData.append(`file`, file);
     });
-    handleCreatePost(formData);
+    handleCreatePost(formData); // Submit form data
   };
 
+  // File change handler
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(e.target.files || []);
     const newPreviews = newFiles.map((file) => {
@@ -58,11 +61,13 @@ export default function CreatePost() {
       });
     });
 
+    // Update image previews and file list
     Promise.all(newPreviews).then((previews) => {
       setFiles((prev) => [...prev, ...newFiles]);
       setImagePreviews((prev) => [...prev, ...previews]);
     });
   };
+
   return (
     <div className="w-full border-b h-fit border-gray-700 py-4 ">
       <div className="flex gap-3 items-center px-4">
@@ -159,13 +164,13 @@ export default function CreatePost() {
                       placeholder="Add a description..."
                       className="text-white custom-quill"
                       value={description}
-                      onChange={setDescription}
+                      onChange={setDescription} // Updates state with description
                       style={{ height: "100px" }}
                     />
                   </div>
 
                   <Checkbox
-                    {...register("premium")} // Register the checkbox
+                    {...register("premium")} // Register checkbox for premium post
                     defaultSelected={false}
                     size="md"
                     className="mt-10"

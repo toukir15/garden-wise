@@ -29,7 +29,10 @@ import ViewComment from "./ViewComment";
 import { checkVoteStatus } from "@/src/utils/checkVoteStatus";
 import { useUser } from "@/src/context/user.provider";
 import { TPost } from "../../../types";
-import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false,
+  loading: () => <textarea placeholder="Loading editor..." />,
+});
 
 const items = [
   {
