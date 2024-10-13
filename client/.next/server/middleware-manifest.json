@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/ssr/fc95d_OneDrive_Desktop_Next-Level-Technology_Assingment_Assingment6_client_960c79._.js",
+        "server/edge/chunks/ssr/src_127f1e._.js",
+        "server/edge/chunks/ssr/edge-wrapper_f88209.js",
+        "server/edge/chunks/ssr/edge-wrapper_7dbc80.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "locale": false,
+          "originalSource": "/admin/:page*",
+          "regexp": "^/admin(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?$"
+        }
+      ]
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
+  "functions": {}
+}

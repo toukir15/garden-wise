@@ -1,0 +1,30 @@
+{
+  "pages": {
+    "/register/page": [
+      "static/chunks/[root of the server]__15b06f._.css",
+      "static/chunks/node_modules_9f85f5._.js",
+      "static/chunks/src_35b705._.js",
+      "static/chunks/src_app_layout_tsx_6bfcad._.js",
+      "static/chunks/src_app_error_tsx_184139._.js",
+      "static/chunks/src_app_error_tsx_5fcd22._.js",
+      "static/chunks/node_modules_next_9af79c._.js",
+      "static/chunks/node_modules_@react-aria_77ed38._.js",
+      "static/chunks/node_modules_tailwind-merge_dist_lib_0e344f._.js",
+      "static/chunks/node_modules_react-hook-form_dist_index_esm_mjs_4d504f._.js",
+      "static/chunks/node_modules_zod_lib_index_mjs_f199c7._.js",
+      "static/chunks/node_modules_fe2723._.js",
+      "static/chunks/fc95d_OneDrive_Desktop_Next-Level-Technology_Assingment_Assingment6_client_585612._.js",
+      "static/chunks/src_app_register_page_tsx_692547._.js",
+      "static/chunks/node_modules_next_dist_compiled_react_5f67b8._.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_cjs_react-dom_development_0ccdcf.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_8592d5._.js",
+      "static/chunks/node_modules_next_dist_compiled_1dc5cb._.js",
+      "static/chunks/node_modules_next_dist_client_a07463._.js",
+      "static/chunks/node_modules_next_dist_4be9f0._.js",
+      "static/chunks/ed0b0_@swc_helpers_cjs_c686d5._.js",
+      "static/chunks/[turbopack]_dev_client_hmr-client_ts_e5acad._.js",
+      "static/chunks/node_modules_next_dist_esm_build_templates_app-page_0686b1.js",
+      "static/chunks/node_modules_next_dist_esm_build_templates_app-page_2bc234.js"
+    ]
+  }
+}

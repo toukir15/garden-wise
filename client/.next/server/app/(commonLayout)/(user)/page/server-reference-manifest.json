@@ -1,0 +1,197 @@
+{
+  "node": {
+    "259d5aa9643faa381d86672d95baa68d26568ef7": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "5f2d2d142184dbb1fd64d6facaad95a15111dff0": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "e57cee30f1316664b0519532937dc576a9ca18ee": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "ede7c93daaaf391e657422077b81261601af23f7": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "83c8c7ea2b2e12162fcaf25cac84c50db0b0bb8a": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "981d0ec87ec08f763cbdab06c844127ee9235853": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "1dc874da8a956296680a2e644acec5b22b0e535f": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "01cce6529e38c37b7ec154a90b385d1fa701a083": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "69ac7fe33fd6acf1bf53525ddd15d563065ac453": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "395f3c27458273636825286476669bf17c059726": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "b7f3e1a04370f69bce557e29dbd8e121e10aa67f": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "225771b638d11cf0937457e67a2bc1a2057f29ac": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "e30899c71e73b3969809b0023a6deb141e05f32e": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "2e9be06e341837f185b5aae3b867ef451993b820": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "8fa4688a3ec0464a98327aa891d68409a2942e84": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "9357d65486d2f0eddd94f4c59ca7a0ca0121db01": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "2f61a0862fdaef6d3beb984bf1cfaf5143928363": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "4940e9dd6f4c8ad98ce991d6ed67647d45963bee": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "ce9bf25cf58d2a2a9c0e33b45c0a6b3f79a84092": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "50526712be63a3734ffd5dcf857c5e14d295d42c": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "01a021699f065e0c327d1cb65e4005ec2f5ce335": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "5cdabce0404be1d08255253db2971a5bcaf7bbcc": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "6a60b80e299cd014dfbbeade85720815ebc4ec7f": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    },
+    "0676dcc9d93ff987b69137825bff8eff72c89e43": {
+      "workers": {
+        "app/(commonLayout)/(user)/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/(commonLayout)/(user)/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/posts/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE1 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\", ACTIONS_MODULE2 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/comment/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/(commonLayout)/(user)/page": "actionBrowser"
+      }
+    }
+  },
+  "edge": {}
+}

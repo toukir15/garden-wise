@@ -1,0 +1,69 @@
+{
+  "node": {
+    "2e9be06e341837f185b5aae3b867ef451993b820": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "50526712be63a3734ffd5dcf857c5e14d295d42c": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "9357d65486d2f0eddd94f4c59ca7a0ca0121db01": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "981d0ec87ec08f763cbdab06c844127ee9235853": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "e30899c71e73b3969809b0023a6deb141e05f32e": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "69ac7fe33fd6acf1bf53525ddd15d563065ac453": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "225771b638d11cf0937457e67a2bc1a2057f29ac": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    },
+    "01cce6529e38c37b7ec154a90b385d1fa701a083": {
+      "workers": {
+        "app/register/page": "[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/Next-Level-Technology/Assingment/Assingment6/client/src/services/auth/index.ts [app-rsc] (ecmascript, action, ecmascript)\" } [app-rsc] (ecmascript)"
+      },
+      "layer": {
+        "app/register/page": "actionBrowser"
+      }
+    }
+  },
+  "edge": {}
+}

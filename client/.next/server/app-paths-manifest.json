@@ -1,0 +1,5 @@
+{
+  "/(commonLayout)/(user)/page": "app/(commonLayout)/(user)/page.js",
+  "/register/page": "app/register/page.js",
+  "/login/page": "app/login/page.js"
+}
