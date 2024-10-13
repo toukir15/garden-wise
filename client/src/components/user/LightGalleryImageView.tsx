@@ -19,7 +19,7 @@ export default function LightGalleryImageView({
             className={`relative h-full ${
               images.length === 3 && index === 0 ? "row-span-2" : "row-span-1"
             } ${index >= 4 ? "hidden lg:block" : ""}`}
-            href={image}
+            href={typeof image === "string" ? image : image.src}
           >
             <Image
               src={image}
