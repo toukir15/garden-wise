@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaDownLong, FaUpLong } from "react-icons/fa6";
 import Image from "next/image";
 import dayjs from "dayjs";
+import dynamic from "next/dynamic";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 import "lightgallery/css/lightgallery.css";
@@ -30,6 +31,7 @@ import { checkVoteStatus } from "@/src/utils/checkVoteStatus";
 import { useUser } from "@/src/context/user.provider";
 import { TPost } from "../../../types";
 
+// Dynamically import ReactQuill
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
   loading: () => null,
