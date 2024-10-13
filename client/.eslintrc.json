@@ -42,7 +42,7 @@
     "jsx-a11y/interactive-supports-focus": "warn",
     "prettier/prettier": "warn",
     "no-unused-vars": "off",
-    "endOfLine": "lf",
+    "linebreak-style": [2, "unix"], // Enforces LF line endings (Unix style)
     "unused-imports/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "warn",
     "@typescript-eslint/no-unused-vars": [
@@ -77,7 +77,6 @@
       }
     ],
     "react/self-closing-comp": "warn",
-
     "padding-line-between-statements": [
       "warn",
       { "blankLine": "always", "prev": "*", "next": "return" },
