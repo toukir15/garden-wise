@@ -17,7 +17,7 @@ export default function ViewComment({
   setOpenSharedComment: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <div
+    <button
       onClick={() => {
         setIsOpenComment(false);
         setOpenSharedComment(false);
@@ -51,6 +51,6 @@ export default function ViewComment({
           </div>
         </div>
       </button>
-    </div>
+    </button>
   );
 }
