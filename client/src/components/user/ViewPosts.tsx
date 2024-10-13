@@ -32,7 +32,7 @@ import { TPost } from "../../../types";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
-  loading: () => <textarea placeholder="Loading editor..." />,
+  loading: () => null,
 });
 
 const items = [
