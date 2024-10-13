@@ -24,7 +24,7 @@ export default function ViewComment({
       }}
       className="fixed top-0 left-0 w-screen h-screen bg-[#000000ba] z-50 "
     >
-      <div
+      <button
         onClick={(e) => e.stopPropagation()}
         className="w-[95%] md:w-[600px] lg:w-[660px] bg-[#121212] rounded-md absolute right-[52%] translate-x-1/2 top-[18%] md:top-[12%] flex flex-col justify-between "
       >
@@ -50,7 +50,7 @@ export default function ViewComment({
             <CommentForm postId={postId} />
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

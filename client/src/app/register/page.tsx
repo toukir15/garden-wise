@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { SubmitHandler } from "react-hook-form";
 import Image from "next/image";
-import logo from "../../../public/plant.png";
 import GWInput from "@/src/components/form/GWInput";
 import GWForm from "@/src/components/form/GWForm";
 import { registerValidationSchema } from "@/src/schemas/register.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserRegister } from "@/src/hooks/auth.hook";
+import logo from "../../../public/plant.png";
 
 type TSignupData = {
   name: string;

@@ -3,12 +3,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
-import logo from "../../../public/plant.png";
 import GWInput from "@/src/components/form/GWInput";
 import GWForm from "@/src/components/form/GWForm";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserLogin } from "@/src/hooks/auth.hook";
 import { loginValidationSchema } from "@/src/schemas/register.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import logo from "../../../public/plant.png";
 
 type TLoginData = {
   email: string;
