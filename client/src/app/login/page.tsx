@@ -52,7 +52,7 @@ export default function LoginPage() {
             Login
           </button>
           <p className="text-[#b5b4b4] mt-3 md:mt-4">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href={`/register`}
               className="hover:cursor-pointer hover:underline hover:text-[#959595]"
