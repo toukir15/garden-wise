@@ -23,7 +23,7 @@ import { FaRegImage } from "react-icons/fa";
 // Dynamically import ReactQuill
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
-  loading: () => <textarea placeholder="Loading editor..." />,
+  loading: () => null,
 });
 
 export default function CreatePost() {
